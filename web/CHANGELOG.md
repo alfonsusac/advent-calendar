@@ -1,5 +1,13 @@
 # web
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [73e08d7]
+- Updated dependencies [918e417]
+  - advent-event@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
