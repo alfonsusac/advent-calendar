@@ -29,16 +29,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Authenticate with npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - uses: step-security/wait-for-secrets@v1
-        id: wait-for-secrets
-        with:
-          secrets: |
-            OTP: 
-              name: 'OTP to publish package'
-              description: 'OTP from authenticator app'
 
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -47,4 +38,21 @@ jobs:
           publish: pnpm run pre-release-ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - run: npm publish --otp ${{ steps.wait-for-secrets.outputs.OTP }}
+
+
+      - name: Authenticate with npm
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - uses: step-security/wait-for-secrets@v1
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        id: wait-for-secrets
+        with:
+          secrets: |
+            OTP: 
+              name: 'OTP to publish package'
+              description: 'OTP from authenticator app'
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: npm publish --otp ${{ steps.wait-for-secrets.outputs.OTP }}
