@@ -78,7 +78,13 @@ export function TestPage() {
 
       <div className="grow flex flex-col">
         {/* Input / Code Block */}
-        <div className="min-h-12 text-lg bg-zinc-800 rounded-md border-white/5 border p-4 whitespace-pre font-medium tracking-tight [&_input]:bg-white/10 [&_input]:rounded-r-md [&_input]:px-1">
+        <div className="relative min-h-12 text-lg bg-zinc-800 rounded-md border-white/5 border p-4 whitespace-pre font-medium [&_input]:bg-white/10 [&_input]:rounded-r-md [&_input]:px-1">
+          <span className="text-code-keyword">import </span>
+          <span className="text-code-identifier">{"{ AdventEvent } "}</span>
+          <span className="text-code-keyword">from </span>
+          <span className="text-code-string">{'"advent-event"'}</span>
+          <br />
+          <br />
           <span className="text-code-keyword">const </span>
           <span className="text-code-identifier">advent</span>
           <span className="text-code-keyword"> = new </span>
@@ -103,6 +109,10 @@ export function TestPage() {
               </div>
             )
           }
+
+          <a className="absolute top-2 right-3 opacity-60 hover:opacity-90 cursor-pointer" href="https://www.npmjs.com/package/advent-event" target="_blank">
+            Open via NPM
+          </a>
         </div>
 
         {/* Status */}
