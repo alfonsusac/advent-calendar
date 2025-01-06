@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      // "advent-event": ["../lib/src/index.js"],
+      "advent-event": ["../lib/src/index.ts"],
       // "advent-event": ["../lib/dist/index.js"], // for production
     }
   },
