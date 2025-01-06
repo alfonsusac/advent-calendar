@@ -5,6 +5,6 @@
   },
   "scripts": {
     "build": "pnpm --filter advent-event run build",
-    "release": "changeset version && pnpm run build && changeset publish"
+    "release": "changeset version && pnpm run build"
   }
 }
