@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { AdventCalendar } from "advent-calendar"
+import { AdventEvent } from "advent-event"
 
 export function TestPage() {
 
@@ -33,7 +33,7 @@ export function TestPage() {
     duration: `24`,
   }
 
-  const adventRef = useRef<AdventCalendar>(new AdventCalendar(
+  const adventRef = useRef<AdventEvent>(new AdventEvent(
     new Date(init.startDate),
     parseInt(init.duration),
   ))
@@ -48,7 +48,7 @@ export function TestPage() {
     setConfigInput(newConfig)
     codeError.current = null
     try {
-      adventRef.current = new AdventCalendar(
+      adventRef.current = new AdventEvent(
         new Date(newConfig.startDate),
         parseInt(newConfig.duration),
       )
@@ -82,7 +82,7 @@ export function TestPage() {
           <span className="text-code-keyword">const </span>
           <span className="text-code-identifier">advent</span>
           <span className="text-code-keyword"> = new </span>
-          <span className="text-code-method">AdventCalendar</span>
+          <span className="text-code-method">AdventEvent</span>
           <span className="text-code-identifier">(</span>
           <div className="flex items-stretch">
             <span>{`  `}</span>

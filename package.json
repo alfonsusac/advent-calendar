@@ -1,10 +1,10 @@
 {
-  "name": "advent-calendar-monorepo",
+  "name": "advent-event-monorepo",
   "devDependencies": {
     "@changesets/cli": "^2.27.11"
   },
   "scripts": {
-    "build": "pnpm --filter advent-calendar run build",
+    "build": "pnpm --filter advent-event run build",
     "release": "changeset version && pnpm run build && changeset publish"
   }
 }

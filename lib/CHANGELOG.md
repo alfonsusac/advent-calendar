@@ -1,4 +1,4 @@
-# advent-calendar
+# advent-event
 
 ## 0.1.0
 

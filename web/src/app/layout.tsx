@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "advent-calendar.js",
+  title: "advent-event.js",
   description: "A customizable advent calendar library to manage unlockable content, countdowns, and day-based events.",
 };
 

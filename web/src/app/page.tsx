@@ -18,7 +18,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-4xl tracking-tighter font-mono pt-20 pb-4">
-          advent-calendar.js
+          advent-event.js
           <div className="text-lg font-sans tracking-tight">
             {/* subtitle */}
             A simple library to create an advent calendar with Typescript

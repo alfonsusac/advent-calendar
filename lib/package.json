@@ -1,5 +1,5 @@
 {
-  "name": "advent-calendar",
+  "name": "advent-event",
   "version": "0.1.0",
   "description": "A customizable advent calendar library to manage unlockable content, countdowns, and day-based events.",
   "main": "dist/index.js",

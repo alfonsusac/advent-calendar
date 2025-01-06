@@ -1,5 +1,5 @@
 // src/index.ts
-export class AdventCalendar {
+export class AdventEvent {
 
   /**
    * Initializes the calendar
@@ -80,3 +80,29 @@ export class AdventCalendar {
   }
 
 }
+
+
+
+
+// import { AdventEvent } from 'advent-event';
+
+// Initialize with a start time and default length of 24 days
+const calendar = new AdventEvent(new Date('2025-12-01T00:00:00Z'));
+
+// Check if day 5 is unlocked
+console.log(calendar.isUnlocked(5)); // true or false
+
+// Get unlock time for day 10
+console.log(new Date(calendar.getTime(10)));
+
+// Calculate countdown for day 15
+console.log(calendar.getCountdown(15)); // Time remaining in milliseconds
+
+// Check if the calendar period is over
+console.log(calendar.isLastDayUnlocked());
+
+// Retrieve the last unlocked day
+console.log(calendar.getLastUnlockedDay());
+
+// Get the number of remaining days in the advent calendar
+console.log(calendar.getRemainingDays());

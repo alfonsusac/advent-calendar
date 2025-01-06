@@ -20,8 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      // "advent-calendar": ["../lib/src/index.js"],
-      // "advent-calendar": ["../lib/dist/index.js"], // for production
+      // "advent-event": ["../lib/src/index.js"],
+      // "advent-event": ["../lib/dist/index.js"], // for production
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
