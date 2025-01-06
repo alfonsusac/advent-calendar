@@ -1,6 +1,6 @@
 {
-  "name": "ext-test",
-  "module": "index.ts",
+  "name": "test",
+  "module": "index.js",
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
@@ -9,6 +9,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "advent-event": "^0.1.1"
+    "advent-event": "^0.1.2"
   }
 }

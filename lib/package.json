@@ -5,11 +5,17 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/alfonsusac/advent-event",
+  "homepage": "https://advent-event.alfon.dev/",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc",
     "pre-release-ci": "pnpm lint && pnpm build"
   },
+
   "keywords": [
     "advent",
     "calendar",
