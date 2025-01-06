@@ -1,5 +1,12 @@
 # advent-event
 
+## 0.1.2
+
+### Patch Changes
+
+- 73e08d7: update readme + package.json
+- 918e417: update lockfile
+
 ## 0.1.1
 
 ### Patch Changes
