@@ -47,5 +47,4 @@ jobs:
           publish: pnpm run pre-release-ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- 
       # - run: npm publish --otp ${{ steps.wait-for-secrets.outputs.OTP }}
