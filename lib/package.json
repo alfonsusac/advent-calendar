@@ -1,6 +1,6 @@
 {
   "name": "advent-event",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A customizable advent calendar library to manage unlockable content, countdowns, and day-based events.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -15,7 +15,6 @@
     "lint": "tsc",
     "pre-release-ci": "pnpm lint && pnpm build"
   },
-
   "keywords": [
     "advent",
     "calendar",
