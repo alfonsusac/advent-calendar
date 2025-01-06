@@ -1,0 +1,31 @@
+{
+  "name": "advent-calendar",
+  "version": "0.1.0",
+  "description": "A customizable advent calendar library to manage unlockable content, countdowns, and day-based events.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc"
+  },
+  "keywords": [
+    "advent",
+    "calendar",
+    "countdown",
+    "event",
+    "unlockable",
+    "content"
+  ],
+  "author": "alfonsusac",
+  "license": "MIT",
+  "dependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5"
+  }
+}
