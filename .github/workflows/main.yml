@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./src
+        working-directory: ./lib
     steps:
       - uses: actions/checkout@v2 # checkout the repository
       - uses: pnpm/action-setup@v2 # setup pnpm
