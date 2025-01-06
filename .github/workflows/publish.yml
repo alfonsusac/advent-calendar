@@ -1,5 +1,5 @@
 name: Publish
-on: 
+on:
   push:
     branches:
       - main
@@ -16,31 +16,35 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-    - uses: actions/checkout@v2
-    - uses: pnpm/action-setup@v2
-      with:
-        version: '9.10.0'
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-        cache: 'pnpm'
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        with:
+          version: "9.10.0"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          cache: "pnpm"
 
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-    - name: Authenticate with npm
-      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-    - name: Create Release Pull Request or Publish
-      id: changesets
-      uses: changesets/action@v1
-      with: 
-        publish: pnpm run release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: step-security/wait-for-secrets@v1
+        id: get-otp
+        with:
+          secrets: |
+            OTP: 
+              name: 'OTP to publish package'
+              description: 'OTP from authenticator app'
 
-    - uses: mmarchini-oss/npm-otp-publish@v0
-      with:
-        npm_token: ${{ secrets.NPM_TOKEN }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        github_actor: ${{ github.actor }}
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run pre-release-ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - run: npm publish --otp ${{ steps.wait-for-secrets.outputs.OTP }}

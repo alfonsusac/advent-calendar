@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "lint": "tsc"
+    "lint": "tsc",
+    "pre-release-ci": "pnpm lint && pnpm build"
   },
   "keywords": [
     "advent",
