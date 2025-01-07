@@ -74,16 +74,15 @@ export function TestPage() {
   const isNextLockedDay = (day: number) => adventRef.current.getLastUnlockedDay(new Date(time)) + 1 === day
 
   return (
-    <div className="mt-4 font-mono flex flex-col lg:flex-row gap-8 [&_label]:text-sm">
+    <div className="font-mono flex flex-col lg:flex-row gap-8 [&_label]:text-sm">
 
       <div className="grow flex flex-col">
         {/* Input / Code Block */}
-        <div className="relative min-h-12 text-lg bg-zinc-800 rounded-md border-white/5 border p-4 whitespace-pre font-medium [&_input]:bg-white/10 [&_input]:rounded-r-md [&_input]:px-1">
+        <div className="relative min-h-12 text-sm sm:text-base md:text-lg bg-slate-500/30 sm:rounded-md border-white/5 border p-4 whitespace-pre font-medium [&_input]:bg-white/10 [&_input]:rounded-r-md [&_input]:px-1 overflow-auto -mx-8 sm:mx-0">
           <span className="text-code-keyword">import </span>
           <span className="text-code-identifier">{"{ AdventEvent } "}</span>
           <span className="text-code-keyword">from </span>
           <span className="text-code-string">{'"advent-event"'}</span>
-          <br />
           <br />
           <span className="text-code-keyword">const </span>
           <span className="text-code-identifier">advent</span>
@@ -93,12 +92,12 @@ export function TestPage() {
           <div className="flex items-stretch">
             <span>{`  `}</span>
             <span className="text-[0.9em] font-sans p-2 py-0.5 bg-white/10 text-white/40 rounded-l-md">startTime:</span>
-            <input className="grow text-code-string" value={configInput.startDate} onChange={changeConfigInput('startDate')} />
+            <input className="grow text-code-string hover:bg-white/20" value={configInput.startDate} onChange={changeConfigInput('startDate')} />
           </div>
-          <div className="flex items-stretch">
+          <div className="flex items-stretch mt-1">
             <span>{`  `}</span>
             <span className="text-[0.9em] font-sans p-2 py-0.5 bg-white/10 text-white/40 rounded-l-md">duration (days):</span>
-            <input className="grow text-code-method" value={configInput.duration} onChange={changeConfigInput('duration')} />
+            <input className="grow text-code-method hover:bg-white/20" value={configInput.duration} onChange={changeConfigInput('duration')} />
           </div>
           <span className="text-code-identifier">)</span>
 
@@ -110,24 +109,22 @@ export function TestPage() {
             )
           }
 
-          <a className="absolute top-2 right-3 opacity-60 hover:opacity-90 cursor-pointer" href="https://www.npmjs.com/package/advent-event" target="_blank">
-            Open via NPM
-          </a>
+
         </div>
 
         {/* Status */}
-        <div className="h-24 mt-8 shrink-0">
+        <div className="h-24 mt-2 mb-2 shrink-0 text-center flex flex-col items-center justify-center text-sm sm:text-lg">
           {
             time <= firstDayTimestamp ?
-              <div className="text-lg text-purple-500">
+              <div className="text-purple-500">
                 Advent has not started yet <FrozenCountdown time={countdownToFirstDay} />
               </div>
               : time > (lastDayTimestamp + 1000 * 60 * 60 * 24 * 5)
-                ? <div className="text-lg text-red-500">
+                ? <div className="text-red-500">
                   Advent is over
                 </div> : time > lastDayTimestamp
-                  ? <div className="text-lg text-yellow-400">All days is unlocked</div>
-                  : <div className="text-lg text-green-500">
+                  ? <div className="text-yellow-400">All days is unlocked</div>
+                  : <div className="text-green-500">
                     Advent is not over yet. <br />Next day in <FrozenCountdown time={countdownToNextDay} />
                   </div>
           }
@@ -139,25 +136,16 @@ export function TestPage() {
         {/* Result */}
         <div className="flex flex-wrap gap-2">
           {Array.from({ length: length }, (_, i) => {
-            if (isDayUnlocked(i + 1)) {
-              return <div key={i} className="transition-all w-24 h-24 bg-white text-black/80 p-2 rounded-md flex items-center justify-center">
-                {i + 1}
-              </div>
-            }
-            if (isNextLockedDay(i + 1)) {
-              return <div key={i} className="transition-all w-24 h-24 bg-red-800 text-white/80 p-2 rounded-md flex flex-col items-center justify-center relative">
-                {i + 1}<br />
-                <div className="text-xs absolute bottom-2 left-2 tracking-tighter">
+            return <div key={i} className="transition-all w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 text-white/80 p-2 bg-red-900 rounded-md flex flex-col items-center justify-center relative data-[unlocked=true]:bg-white data-[unlocked=true]:text-black/50"
+              data-unlocked={isDayUnlocked(i + 1)}
+            >
+              {i + 1}
+              {isNextLockedDay(i + 1) &&
+                <div className="text-xs absolute bottom-2 left-2 tracking-tighter font-sans hidden lg:block">
                   {FrozenCountdown({ time: countdownToNextDay }).replace("0d ", "")}
                 </div>
-              </div>
-            }
-
-            return (
-              <div key={i} className="transition-all w-24 h-24 bg-red-800 text-white/80 p-2 rounded-md flex items-center justify-center">
-                {i + 1}<br />
-              </div>
-            )
+              }
+            </div>
           })}
         </div>
 
@@ -165,8 +153,7 @@ export function TestPage() {
 
       {/* Mock */}
       <div className=" lg:w-2/5 flex-none shrink-0">
-        <TimeTraveler time={time} setTime={setTime} />
-        <button disabled={warping} className="p-4 rounded-md bg-slate-500/50 mt-2 disabled:brightness-50 disabled:pointer-events-none" onClick={() => {
+        <button disabled={warping} className="font-sans font-semibold p-3 px-6 rounded-md bg-slate-500/50 border hover:brightness-125 border-white/10 mb-4 disabled:brightness-50 disabled:pointer-events-none" onClick={() => {
 
           function easeInOutQuad(t: number) {
             return t < 0.5
@@ -221,8 +208,16 @@ export function TestPage() {
               : isLastDayUnlocked ? "Go to start of Advent" : "Go To Next Day"
           }
         </button>
-      </div>
+        <TimeTraveler time={time} setTime={setTime} />
 
+        <div className="p-3 px-4 mt-4 bg-slate-500/30 rounded-t-md flex flex-col items-start gap-2 border border-white/5" >
+          npm i advent-event
+        </div>
+        <a className="block p-2 px-4 border border-white/10 rounded-b-md hover:bg-white/5 font-sans text-sm font-semibold" href="https://www.npmjs.com/package/advent-event" target="_blank">
+          Visit NPM Site
+        </a>
+
+      </div>
     </div>
   )
 
@@ -282,9 +277,11 @@ function TimeTraveler(
 
   return (
     <>
-      <div className=" flex flex-col gap-2 pb-8 rounded-2xl [&_label]:pt-1 [&_label]:-mb-1 relative">
-        {/* <div className="text-lg font-semibold -mt-1.5 mb-1 text-slate-200/50">Time Traveler</div> */}
+      <div className="-mx-8 sm:mx-0 mt-4 sm:mt-0 bg-slate-500/20 p-8 sm:p-6 font-sans flex flex-col gap-2 pb-8 sm:rounded-2xl [&_label]:pt-1 [&_label]:-mb-1 relative">
         <div>
+          <div className="text-lg">
+            Time Traveler
+          </div>
           <div className="text-sm">
             Current UTC time: <span className="font-sans">{new Date(time).toLocaleString("en", {
               timeZone: "UTC",
@@ -310,7 +307,7 @@ function TimeTraveler(
           {years.map((y, i) => <option key={i} value={y}></option>)}
         </datalist>
 
-        <label>Month: {new Date(time).toLocaleString('default', { month: "long" })}</label>
+        {/* <label>Month: {new Date(time).toLocaleString('default', { month: "long" })}</label>
         <input
           type="range"
           onChange={(e) => setTime(e.currentTarget.valueAsNumber, tz)}
@@ -321,7 +318,7 @@ function TimeTraveler(
         />
         <datalist id="months">
           {months.map((y, i) => <option key={i} value={y}></option>)}
-        </datalist>
+        </datalist> */}
 
         <label>Day: {new Date(time).toLocaleString('en', { day: "numeric", timeZone: "UTC" })}</label>
         <input
@@ -349,14 +346,14 @@ function TimeTraveler(
           {hours.map((y, i) => <option key={i} value={y}></option>)}
         </datalist>
 
-        <label>Minute: {new Date(time).toLocaleString('default', { minute: '2-digit' })}</label>
+        {/* <label>Minute: {new Date(time).toLocaleString('default', { minute: '2-digit' })}</label>
         <input
           type="range"
           onChange={(e) => setTime(e.currentTarget.valueAsNumber, tz)}
           min={minutes[0]}
           max={minutes.at(-1)}
           value={time}
-        />
+        /> */}
 
         <label>Timezone Offset: {tz}</label>
         <input

@@ -18,11 +18,15 @@ export default function Home() {
           </div>
         </div>
         <div className="text-4xl tracking-tighter font-mono pt-20 pb-4">
-          advent-event.js
-          <span className="tracking-normal inline-block pl-4 text-lg">
-            <span className="">v0.1.3</span>
-          </span>
-          <div className="text-lg font-sans tracking-tight">
+          <div className="flex items-end flex-wrap gap-x-2">
+            <div className="shrink-0">
+              advent-event.js
+            </div>
+            <span className="tracking-normal inline-block text-lg">
+              v0.1.3
+            </span>
+          </div>
+          <div className="text-lg font-sans tracking-normal">
             {/* subtitle */}
             A simple library to create an advent calendar with Typescript
           </div>
