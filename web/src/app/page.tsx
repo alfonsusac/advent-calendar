@@ -3,7 +3,7 @@ import { TestPage } from "./client";
 
 export default function Home() {
   return (
-    <div className="p-8 min-h-screen flex flex-col items-center" id="page">
+    <div className="p-8 min-h-screen flex flex-col items-center bg-white/5" id="page">
       <div className="w-full max-w-lg lg:max-w-none relative">
         <div className="absolute w-40 h-20 -top-2 overflow-hidden" >
           <div className="w-40 h-40 absolute opacity-0" id="daynight">
