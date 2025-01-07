@@ -217,7 +217,7 @@ export function TestPage() {
           <MdiNpmVariantOutline className="inline mr-2 h-4 w-4 align-[-0.2rem] opacity-60" />
           Visit NPM Site
         </a>
-        <a className="block p-2 px-4 border border-white/10 rounded-b-md hover:bg-white/5 font-sans text-sm font-semibold" href="https://www.npmjs.com/package/advent-event" target="_blank">
+        <a className="block p-2 px-4 border border-white/10 rounded-b-md hover:bg-white/5 font-sans text-sm font-semibold" href="https://github.com/alfonsusac/advent-event" target="_blank">
           <MdiGithub className="inline mr-2 h-4 w-4 align-[-0.2rem] opacity-60" />
           Visit repository
         </a>
