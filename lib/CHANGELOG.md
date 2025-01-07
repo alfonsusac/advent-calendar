@@ -1,5 +1,11 @@
 # advent-event
 
+## 0.2.0
+
+### Minor Changes
+
+- acc953c: Added days prop
+
 ## 0.1.4
 
 ### Patch Changes
