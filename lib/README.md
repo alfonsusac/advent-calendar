@@ -51,6 +51,6 @@ console.log(calendar.getRemainingDays());
 - **`isUnlocked(day: number, currentTime?: Date): boolean`**: Checks if a specific day is unlocked.  
 - **`getTime(day: number): number`**: Gets the unlock time for a day (as a timestamp).  
 - **`getCountdown(day: number, currentTime?: Date): number`**: Calculates the time remaining until a day is unlocked.  
-- **`isOver(currentTime?: Date): boolean`**: Checks if the calendar period is over.  
+- **`isLastDayUnlocked(currentTime?: Date): boolean`**: Checks if the calendar period is over.  
 - **`getLastUnlockedDay(currentTime?: Date): number`**: Finds the most recent unlocked day.  
 - **`getRemainingDays(currentTime?: Date): number`**: Gets the number of days left in the advent calendar.
