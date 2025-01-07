@@ -25,6 +25,10 @@ export function TestPage() {
     if (!moon) return
     moon.style.rotate = `${ (1 - percent) * 360 + 180 }deg`
 
+    const sun = nodeId("sun")
+    if (!sun) return
+    sun.style.rotate = `${ (1 - percent) * 360 + 180 }deg`
+
   }
   useEffect(() => setTime(new Date().getTime()), [])
 
@@ -375,7 +379,7 @@ function TimeTraveler(
 
 const nodeId = (id: string) => {
   return document.getElementById(id)
-} 
+}
 
 
 function MdiNpmVariantOutline(props: SVGProps<SVGSVGElement>) {

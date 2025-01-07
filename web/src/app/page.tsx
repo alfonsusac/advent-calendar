@@ -8,7 +8,7 @@ export default function Home() {
         <div className="absolute w-40 h-20 -top-2 overflow-hidden" >
           <div className="w-40 h-40 absolute opacity-0" id="daynight">
             <div className="w-40 h-40 rounded-full flex flex-col items-center justify-between" >
-              <LucideSun className="w-12 h-12" />
+              <LucideSun className="w-12 h-12" id="sun" />
               <LucideMoon className="w-12 h-12" id="moon" />
             </div>
             <div className="absolute top-0 left-0 blur-md w-40 h-40 rounded-full flex flex-col items-center justify-between" >
