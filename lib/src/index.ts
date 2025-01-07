@@ -21,6 +21,10 @@ export class AdventEvent {
     }
   }
 
+  days = Array.from({ length: this.length }, (_, i) =>
+    new Date(this.startTime.getTime() + i * 24 * 60 * 60 * 1000)
+  );
+
   /**
    * Checks if a specific day is unlocked. 
    */
