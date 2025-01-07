@@ -78,7 +78,7 @@ export function TestPage() {
 
       <div className="grow flex flex-col">
         {/* Input / Code Block */}
-        <div className="relative min-h-12 text-sm sm:text-base md:text-lg bg-slate-500/30 sm:rounded-md border-white/5 border p-4 whitespace-pre font-medium [&_input]:bg-white/10 [&_input]:rounded-r-md [&_input]:px-1 overflow-auto -mx-8 sm:mx-0">
+        <div className="relative min-h-12 text-sm sm:text-base md:text-lg bg-slate-500/30  border-white/5 border p-4 whitespace-pre font-medium [&_input]:bg-white/10 [&_input]:rounded-r-md [&_input]:px-1 overflow-auto -mx-8 sm:mx-0">
           <span className="text-code-keyword">import </span>
           <span className="text-code-identifier">{"{ AdventEvent } "}</span>
           <span className="text-code-keyword">from </span>
@@ -277,7 +277,7 @@ function TimeTraveler(
 
   return (
     <>
-      <div className="-mx-8 sm:mx-0 mt-4 sm:mt-0 bg-slate-500/20 p-8 sm:p-6 font-sans flex flex-col gap-2 pb-8 sm:rounded-2xl [&_label]:pt-1 [&_label]:-mb-1 relative">
+      <div className="-mx-8 sm:mx-0 mt-4 sm:mt-0 bg-slate-500/20 p-8 sm:p-6 font-sans flex flex-col gap-2 pb-8 [&_label]:pt-1 [&_label]:-mb-1 relative">
         <div>
           <div className="text-lg">
             Time Traveler

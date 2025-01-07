@@ -32,6 +32,12 @@ export default function Home() {
           </div>
         </div>
         <TestPage />
+        <footer>
+          <div className="text-center text-xs opacity-60 mt-20">
+            <p>© {new Date().getFullYear()} <a href="https://x.com/alfonsusac" target="_blank" className="hover:underline">alfonsusac</a></p>
+            <p>Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" className="hover:underline">MIT License</a></p>
+          </div>
+        </footer>
       </div>
     </div>
   );
