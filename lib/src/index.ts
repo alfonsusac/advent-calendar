@@ -1,6 +1,7 @@
 // src/index.ts
 export class AdventEvent {
 
+  readonly days: Date[];
   /**
    * Initializes the calendar
    * @param startTime The start time of the calendar
@@ -19,11 +20,11 @@ export class AdventEvent {
     if (typeof length !== 'number' || isNaN(length)) {
       throw new Error('length must be a number')
     }
-  }
 
-  days = Array.from({ length: this.length }, (_, i) =>
-    new Date(this.startTime.getTime() + i * 24 * 60 * 60 * 1000)
-  );
+    this.days = Array.from({ length: this.length }, (_, i) =>
+      new Date(this.startTime.getTime() + i * 24 * 60 * 60 * 1000)
+    );
+  }
 
   /**
    * Checks if a specific day is unlocked. 
